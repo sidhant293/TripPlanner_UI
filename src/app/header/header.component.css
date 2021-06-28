@@ -1,0 +1,11 @@
+.header-custom{
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    width: 100vw;
+    margin-top: 1vh;
+}
+
+.pointer{
+    cursor: pointer;
+}

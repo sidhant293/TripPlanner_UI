@@ -1,0 +1,66 @@
+<div class="d-flex align-items-center justify-content-center mb-5">
+    <div class="row justify-content-center">
+        <!-- SignIn -->
+        <ng-template [ngIf]="!register">
+            <div class="login-wrap p-0">
+                <p class="mb-4 text-center display-4">Sign In</p>
+                <form [formGroup]="loginForm" class="signin-form" (ngSubmit)="login()">
+                    <div class="form-group ">
+                        <input type="text" class="form-control text-center" formControlName="emailId" placeholder="Email Id">
+                        <span *ngIf="loginForm.get('emailId').invalid && loginForm.get('emailId').touched" class="fa fa-fw fa-eye field-icon text-danger">Email Required</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control text-center" placeholder="Password" formControlName="password">
+                        <span *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" class="fa fa-fw fa-eye field-icon text-danger">Minimum 7 letters</span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn bg-dark text-white submit px-3" [disabled]="loginForm.invalid">Sign In</button>
+                    </div>
+                    <div class="form-group d-md-flex flex-row justify-content-center">
+                        <a class="text-dark" href="#" (click)="toogleSignInRegister()">Register</a>
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="errorMessage!=null" class="text-danger">
+                            <h6>{{errorMessage}}</h6>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </ng-template>
+        <!-- Register -->
+        <ng-template [ngIf]="register">
+            <div class="login-wrap p-0">
+                <p class="mb-4 text-center display-4">Register</p>
+                <form action="#" class="signin-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+                    <div class="form-group ">
+                        <input type="text" class="form-control text-center" placeholder="Username" formControlName="username">
+                        <span *ngIf="registerForm.get('username').invalid && registerForm.get('username').touched" class="fa fa-fw fa-eye field-icon text-danger">Username Required</span>
+                    </div>
+                    <div class="form-group ">
+                        <input type="text" class="form-control text-center" formControlName="emailId" placeholder="Email Id">
+                        <span *ngIf="registerForm.get('emailId').invalid && registerForm.get('emailId').touched" class="fa fa-fw fa-eye field-icon text-danger">Email Required</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control text-center" placeholder="Password" formControlName="password">
+                        <span *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched" class="fa fa-fw fa-eye field-icon text-danger">Minimum 7 letters</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control text-center" placeholder="Confirm Password" formControlName="confirmPassword">
+                        <span *ngIf="registerForm.get('confirmPassword').hasError('mustMatch') && registerForm.get('confirmPassword').touched" class="fa fa-fw fa-eye field-icon text-danger">Passwords should match</span>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" [disabled]="registerForm.invalid" class="form-control btn bg-dark text-white submit px-3">Register</button>
+                    </div>
+                    <div class="form-group d-md-flex flex-row justify-content-center">
+                        <a class="text-dark" href="#" (click)="toogleSignInRegister()">Sign In</a>
+                    </div>
+                    <div class="form-group">
+                        <div *ngIf="errorMessage!=null" class="text-danger">
+                            <h6>{{errorMessage}}</h6>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </ng-template>
+    </div>
+</div>

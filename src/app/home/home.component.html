@@ -1,0 +1,25 @@
+<div id="navOver" [class]="signIn ? 'nav-overlay nav-overlay-open' : 'nav-overlay nav-overlay-close'" 
+[ngStyle]="{'display': setDisplay ? 'flex' : 'none' }">
+  <app-login></app-login>
+</div>
+
+<app-header></app-header>
+<div class="full-height">
+  
+    <ngb-carousel *ngIf="images" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+        <ng-template ngbSlide *ngFor="let image of images">
+          
+          <img class="banner" [src]="image" alt="Tourism Images">
+        
+          <div class="carousel-caption center-attraction">
+            <h1>CREATE YOUR CUSTOM ITINEARARY</h1>
+            <button type="button" class="btn btn-outline-light" >Let's Start</button>
+          </div>
+         
+        </ng-template>
+    </ngb-carousel>    
+</div>
+<app-footer></app-footer>
+
+  
+  

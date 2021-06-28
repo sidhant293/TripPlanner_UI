@@ -1,0 +1,57 @@
+.banner{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+}
+
+.full-height{
+    height: 100vh;
+    overflow: hidden !important;
+}
+
+.center-attraction{
+    position: absolute ;
+	top:50% ;
+	left: 50% ;
+  	z-index: 10;
+	margin: 20px auto ;
+    padding:0;
+    transform: translate(-50%, -50%);
+}
+
+.nav-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.95);
+    padding: 2.125rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-overlay-open{
+    animation: 500ms open;
+    opacity: 1;
+}
+
+.nav-overlay-close{
+    animation: 500ms close;
+    opacity: 0;
+}
+
+@keyframes open {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes close {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}

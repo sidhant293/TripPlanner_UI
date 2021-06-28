@@ -1,0 +1,8 @@
+* {
+    box-sizing: border-box; /* not completely needed, yet useful */
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
