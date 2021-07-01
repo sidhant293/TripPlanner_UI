@@ -19,6 +19,7 @@ export class AuthTokenService {
   // to get updated refreshtoken
 getRefreshToken(userId:string){
   console.log("refresh");
+  if(sessionStorage.getItem("callRefresh")==null) return;
   this.loginservice.validateRefresh(userId).subscribe( (response) => {
     this.authToken = response;
     let user=this.populateUser(this.authToken);

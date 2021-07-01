@@ -3,6 +3,7 @@ import { AuthService } from '../core/auth.service';
 import { LoginpageCommunicationService } from '../core/loginpage-communication.service';
 import { User } from '../models/User';
 import { AuthTokenService } from '../core/authtoken.service';
+import { LoginService } from '../services/login.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
   userName: string;
   loggedIn: boolean;
 
-  constructor(private loginCommunication: LoginpageCommunicationService, private auth: AuthService, private authTokenService:AuthTokenService) { }
+  constructor(private loginCommunication: LoginpageCommunicationService, private auth: AuthService, private authTokenService:AuthTokenService,private loginservice: LoginService) { }
   ngOnInit(): void {
     this.checkForRefreshToken();
     this.auth.sessionUser.subscribe(data => {
@@ -38,6 +39,9 @@ export class HeaderComponent implements OnInit {
   logOut(){
     sessionStorage.clear();
     this.auth.nextUser(new User());
+    this.loginservice.logout().subscribe((response)=>{
+        
+    });
   }
 
   checkForRefreshToken(){

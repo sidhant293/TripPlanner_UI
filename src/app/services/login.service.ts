@@ -12,14 +12,20 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(data: any): Observable<AuthToken> {
+    sessionStorage.setItem("callRefresh","true");
     return <Observable<AuthToken>>this.http.post<AuthToken>(environment.loginUrl, data);  
   }
 
   register(data: any): Observable<AuthToken> {
+    sessionStorage.setItem("callRefresh","true");
     return <Observable<AuthToken>>this.http.post<AuthToken>(environment.registerUrl, data);  
   }
 
   validateRefresh(userId:string): Observable<AuthToken> {
     return <Observable<AuthToken>>this.http.get<AuthToken>(environment.refreshTokenUrl+`/${userId}`);  
+  }
+
+  logout():Observable<AuthToken> {
+    return <Observable<AuthToken>>this.http.get<AuthToken>(environment.removeRefreshTokenUrl);  
   }
 }

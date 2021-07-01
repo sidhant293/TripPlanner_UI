@@ -8,7 +8,8 @@ export const environment = {
   production: false,
   loginUrl:`${baseUrl+'/UserAPI/userLogin'}`,
   registerUrl: `${baseUrl+'/UserAPI/userRegister'}`,
-  refreshTokenUrl: `${baseUrl+'/UserAPI/validateRefresh'}`
+  refreshTokenUrl: `${baseUrl+'/UserAPI/validateRefresh'}`,
+  removeRefreshTokenUrl: `${baseUrl+'/UserAPI/removeRefresh'}`
 };
 
 /*
