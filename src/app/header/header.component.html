@@ -9,14 +9,29 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-white " href="#">Home </a>
+        </li>
+
+        <!-- if logged in -->
+        <li class="nav-item">
+            <a *ngIf="loggedIn" [routerLink]="['/places']" class="nav-link text-white" href="#">Create Trips</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">Create Trips</a>
+          <a *ngIf="loggedIn" class="nav-link text-white" href="#">My Trips</a>
+        </li>
+
+        <!-- IF NOT LOGGED IN -->
+        <li class="nav-item">
+          <span *ngIf="!loggedIn" data-toggle= "tooltip" data-placement="top" title="Login To Enable This Feature">
+            <a class="nav-link disabled text-white-50" href="#">Create Trips</a>
+          </span>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">My Trips</a>
+          <span *ngIf="!loggedIn" data-toggle= "tooltip" data-placement="top" title="Login To Enable This Feature">
+            <a class="nav-link disabled text-white-50" href="#">My Trips</a>
+          </span>
         </li>
+
       </ul>
       <button *ngIf="!loggedIn" (click)="toogleLoginButton()" type="button" [class]="signInButton ? 'btn btn-outline-light' : 'btn btn-outline-dark text-dark'">{{signInButton ? "Sign In":"X" }}</button>
       <ng-template [ngIf]="loggedIn">

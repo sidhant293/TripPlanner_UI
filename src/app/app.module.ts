@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component'
 import { Observable } from 'rxjs';
+import { PlacesComponent } from './places/places.component';
 
 @Injectable()
 export class CustomInterceptor implements HttpInterceptor { 
@@ -31,7 +32,8 @@ export class CustomInterceptor implements HttpInterceptor {
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    PlacesComponent
   ],
   imports: [
     BrowserModule,
